@@ -81,7 +81,7 @@ Even without a real DB, the tester will “simulate” backend values to validat
   - Member fines total
   - Book availability transition
 
-## 7.4 Regression Mindset
+## 6.4 Regression Mindset
 - Future updates should not break core functions like checkout, availability, or fines.
 
 # 8. Deliverables
