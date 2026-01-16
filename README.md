@@ -3,8 +3,8 @@
 ### This project demonstrates manual QA testing for a simplified Bookkeeping API. The purpose of the project is to practice core QA skills including writing test plans, test scenarios, and detailed manual test cases, along with identifying limitations and future improvement areas. All testing was performed against a controlled mock API environment.
 
 ## Project Structure
-
-```/docs
+```
+/docs
   ├── defect_log.md
   ├── environment_tools.md
   ├── future_improvements.md
@@ -13,8 +13,8 @@
   ├── test_scenarios.md
   ├── test_summary.md
   └── testing_limitations.md
-README.md```
-
+README.md
+```
 ---
 
 ## Documentation
