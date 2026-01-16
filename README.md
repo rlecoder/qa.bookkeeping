@@ -23,7 +23,6 @@ All QA documentation for this project is located in the /docs folder.
 Each file focuses on a different part of the testing workflow:
 
 ### Test Plan
-### Test Plan
 Defines the testing scope, objectives, approach, and entry/exit criteria.  
 📄 [test_plan.md](/docs/test_plan.md)
 
