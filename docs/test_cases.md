@@ -182,7 +182,7 @@ Member details:
 ### Steps
 1. Send PATCH return request.
    { "return_date": "2026-01-11" }
-3. Verify updated fine and member status.
+2. Verify updated fine and member status.
 
 ### Expected Result
 - Status: 200 OK
@@ -292,3 +292,118 @@ Loan exists with:
 - Book status = AVAILABLE
 
 ---
+
+## TC-MEMBER-001 — Retrieve summary for valid active member
+
+### Preconditions
+- Member exists with:
+- member_id = 101
+- status = ACTIVE
+- total_fines = 0
+- active_loans_count = 2
+- overdue_loans_count = 0
+
+### Steps
+1. Send GET request to /v2/members/101/summary.
+2. Observe returned fields.
+
+### Expected Result
+- Status: 200 OK
+- Correct member_id and name returned
+- status = ACTIVE
+- active_loans_count = 2
+- overdue_loans_count = 0
+- Loan list includes 2 active loans with correct details
+
+--- 
+
+## TC-MEMBER-002 — Member with zero loans returns correct structure
+
+### Preconditions
+- Member exists with:
+- member_id = 102
+- total_fines = 0
+- active_loan_count = 0
+
+### Steps
+1. Send GET request to /v2/members/102/summary.
+
+### Expected Result
+- Status: 200 OK
+- active_loans_count = 0
+- overdue_loans_count = 0
+- loans list is empty (not null)
+- status = ACTIVE
+
+---
+
+## TC-MEMBER-003 — Member with overdue loans shows accurate count
+
+### Preconditions
+- Member exists with:
+- member_id = 103
+- total_fines = 0
+- 2 overdue loans
+- status = ACTIVE
+
+### Steps
+- Send GET request to /v2/members/103/summary.
+
+### Expected Result
+- Status: 200 OK
+- overdue_loans_count = 2
+- active_loans_count correctly reflects number of active loans
+- Loans returned have status = OVERDUE and proper due_date
+
+---
+
+## TC-MEMBER-004 — Member with fines above block threshold shows BLOCKED status
+
+### Preconditions
+- Member exists with:
+- member_id = 104
+- total_fines = 60.00
+- status = BLOCKED
+- active_loans_count may be 0 or more
+
+### Steps
+1. Send GET request to /v2/members/104/summary.
+
+### Expected Result
+- Status: 200 OK
+- status = BLOCKED
+- total_fines = 60.00
+- Member cannot check out new books (business rule reflected in status)
+
+---
+
+## TC-MEMBER-005 — Invalid member_id returns error
+
+### Preconditions
+No member exists with member_id = 99999
+
+### Steps
+1. Send GET request to /v2/members/99999/summary.
+
+### Expected Result
+- Status: 404 NOT FOUND or 400 BAD REQUEST depending on implementation
+- Error message indicates member does not exist
+
+---
+
+## TC-MEMBER-006 — Member exists but has inconsistent loan data
+
+### Preconditions
+- Member exists with:
+- member_id = 105
+- summary says 3 active loans
+- backend loan list is missing one (intentional mock inconsistency)
+
+### Steps
+1. Send GET request to /v2/members/105/summary.
+
+### Expected Result
+- Status: 200 OK
+- Detected inconsistency:
+- active_loans_count does not match loan list count
+- This should be logged as a DEFECT in defect log
