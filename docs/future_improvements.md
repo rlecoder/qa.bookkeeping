@@ -2,6 +2,8 @@
 
 Several enhancements could strengthen the overall functionality and testing coverage of the Bookkeeping API. These improvements would support more realistic workflows, better error handling, and more complete system behavior.
 
+---
+
 ## Functional Improvements
 - Add automatic fine accumulation for overdue loans instead of calculating fines only at return time.
 - Include notifications or alerts for overdue items.
