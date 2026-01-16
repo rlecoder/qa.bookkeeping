@@ -407,3 +407,92 @@ No member exists with member_id = 99999
 - Detected inconsistency:
 - active_loans_count does not match loan list count
 - This should be logged as a DEFECT in defect log
+
+---
+
+## C-BOOK-001 — Get all books with no filters
+
+### Preconditions
+- Library has multiple books across different categories and statuses (AVAILABLE, CHECKED_OUT, LOST).
+
+### Steps
+1. Send GET request to /v2/books with no query parameters.
+2. Observe the returned list.
+
+### Expected Result
+- Status: 200 OK
+- A list of books is returned.
+- Each book contains at least: book_id, title, category, status.
+
+---
+
+TC-BOOK-002 — Filter by status = AVAILABLE
+
+### Preconditions
+At least one book with status = AVAILABLE.
+At least one book with status != AVAILABLE.
+
+### Steps
+
+1. Send GET request to /v2/books?status=AVAILABLE.
+2. Observe all returned books.
+
+### Expected Result
+- Status: 200 OK
+- Every returned book has status = AVAILABLE.
+- No books with other statuses are included.
+
+---
+
+## TC-BOOK-003 — Filter by status and category together
+
+### Preconditions
+- At least one book with:
+- category = FANTASY
+- status = AVAILABLE
+- Other books exist that are:
+- FANTASY but not AVAILABLE, or
+- AVAILABLE but not FANTASY.
+
+### Steps
+1. Send GET request to /v2/books?status=AVAILABLE&category=FANTASY.
+2. Observe the returned list.
+
+### Expected Result
+- Status: 200 OK.
+- Every returned book has:
+- status = AVAILABLE
+- category = FANTASY.
+- No books outside that combination are included.
+
+---
+
+## TC-BOOK-004 — Basic pagination returns correct number of items
+
+### Preconditions
+- At least 25 books exist in the system.
+
+### Steps
+1. Send GET request to /v2/books?page=1&page_size=10.
+2. Count the number of books returned.
+
+### Expected Result
+- Status: 200 OK.
+- Exactly 10 books are returned (assuming enough data exists).
+- If pagination fields are present, page = 1 and page_size = 10 are correct.
+
+---
+
+## TC-BOOK-005 — Invalid pagination values return an error
+
+### Preconditions
+- N/A (testing invalid input handling).
+
+### Steps
+1. Send GET request to /v2/books?page=0&page_size=10.
+2. Send GET request to /v2/books?page=1&page_size=0.
+
+### Expected Result
+- Status: 400 BAD REQUEST (or equivalent validation error) for each invalid request.
+- Error message indicates page and page_size must be positive integers.
+- No book data is returned.
