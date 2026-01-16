@@ -1,4 +1,4 @@
-# 📌 Summary of Testing Activities
+# Summary of Testing Activities
 
 This project focuses on manually validating core functionality of a simple Bookkeeping API. The testing effort covers the main user flows related to book loans, returns, member account status, and book lookup features. The goal is to ensure each workflow behaves according to the defined business rules and returns accurate, consistent data.
 
