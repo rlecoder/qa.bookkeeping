@@ -4,7 +4,7 @@
 
 ## Project Structure
 
-/docs
+```/docs
   ├── defect_log.md
   ├── environment_tools.md
   ├── future_improvements.md
@@ -13,7 +13,7 @@
   ├── test_scenarios.md
   ├── test_summary.md
   └── testing_limitations.md
-README.md
+README.md```
 
 ---
 
