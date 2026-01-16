@@ -27,7 +27,7 @@ Defines the testing scope, objectives, approach, and entry/exit criteria.
 📄 [test_plan.md](/docs/test_plan.md)
 
 ### Test Scenarios
-High-level scenarios outlining the major behaviors that need to be validated.
+High-level scenarios outlining the major behaviors that need to be validated.  
 📄 [test_scenarios.md](/docs/test_scenarios.md)
 
 ### Test Cases
