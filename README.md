@@ -19,7 +19,7 @@ README.md
 
 ## Documentation
 
-All QA documentation for this project is located in the /docs folder.
+All QA documentation for this project is located in the /docs folder.  
 Each file focuses on a different part of the testing workflow:
 
 ### Test Plan
@@ -35,36 +35,36 @@ High-level scenarios outlining the major behaviors that need to be validated.
 - Loan workflows
 - Return workflows
 - Member summary
-- Book search and filtering
+- Book search and filtering  
 📄 [test_cases.md](/docs/test_cases.md)
 
 ### Test Summary
-A summary of what was tested, key behaviors verified, and testing approach.
+A summary of what was tested, key behaviors verified, and testing approach.  
 📄 [test_summary.md](/docs/test_summary.md)
 
 ### Testing Limitations
-Known limitations of the mock environment, data, and test coverage.
+Known limitations of the mock environment, data, and test coverage.  
 📄 [testing_limitations.md](/docs/testing_limitations.md)
 
 ### Future Improvements
-Potential enhancements for API functionality and testing practices.
+Potential enhancements for API functionality and testing practices.  
 📄 [future_improvements.md](/docs/future_improvements.md)
 
 ### Environment & Tools Used
-Lists tools, environments, and assumptions used during testing.
+Lists tools, environments, and assumptions used during testing.  
 📄 [environment_tools.md](/docs/environment_tools.md)
 
 ### Defect Log
-Placeholder for documenting defects found during execution.
+Placeholder for documenting defects found during execution.  
 📄 [defect_log](/docs/defect_log.md)
 
 ---
 
 ## Project Goals
-Practice creating clear, structured QA documentation
-Demonstrate understanding of API behavior and business rules
-Build realistic test cases useful for entry-level QA roles
-Showcase organization and documentation skills to potential employers
+- Practice creating clear, structured QA documentation
+- Demonstrate understanding of API behavior and business rules
+- Build realistic test cases useful for entry-level QA roles
+- Showcase organization and documentation skills to potential employers
 
 ---
 
