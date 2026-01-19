@@ -1,0 +1,14 @@
+[
+    {
+        "book_id": 200,
+        "title": "Example Book",
+        "category": "FANTASY",
+        "status": "AVAILABLE"
+    },
+    {
+        "book_id": 201,
+        "title": "Another Book",
+        "category": "SCIFI",
+        "status": "CHECKED_OUT"
+    }
+]

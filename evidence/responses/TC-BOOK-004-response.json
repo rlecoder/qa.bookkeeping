@@ -1,0 +1,15 @@
+{
+    "page": 1,
+    "page_size": 10,
+    "total_items": 25,
+    "books": [
+        {
+            "book_id": 1,
+            "title": "Book 1"
+        },
+        {
+            "book_id": 2,
+            "title": "Book 2"
+        }
+    ]
+}

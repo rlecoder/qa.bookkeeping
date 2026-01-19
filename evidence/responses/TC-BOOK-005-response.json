@@ -1,0 +1,3 @@
+{
+    "error": "page and page_size must be positive integers"
+}

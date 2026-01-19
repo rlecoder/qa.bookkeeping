@@ -1,0 +1,14 @@
+[
+    {
+        "book_id": 200,
+        "title": "Book A",
+        "category": "FANTASY",
+        "status": "AVAILABLE"
+    },
+    {
+        "book_id": 205,
+        "title": "Book B",
+        "category": "HORROR",
+        "status": "AVAILABLE"
+    }
+]
