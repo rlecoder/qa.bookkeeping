@@ -1,0 +1,17 @@
+{
+    "member_id": 105,
+    "status": "ACTIVE",
+    "total_fines": 0,
+    "active_loans_count": 3,
+    "overdue_loans_count": 0,
+    "loans": [
+        {
+            "loan_id": 5001,
+            "status": "ACTIVE",
+        },
+        {
+            "loan_id": 5002,
+            "status": "ACTIVE",
+        }
+    ]
+}

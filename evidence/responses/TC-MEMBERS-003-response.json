@@ -1,0 +1,21 @@
+{
+    "member_id": 103,
+    "status": "ACTIVE",
+    "total_fines": 0,
+    "active_loans_count": 0,
+    "overdue_loans_count": 2,
+    "loans": [
+        {
+            "loan_id": 5010,
+            "book_id": 210,
+            "status": "OVERDUE",
+            "due_date": "2026-01-05"
+        },
+        {
+            "loan_id": 5011,
+            "book_id": 211,
+            "status": "OVERDUE",
+            "due_date": "2026-01-07"
+        }
+    ]
+}
