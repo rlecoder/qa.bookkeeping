@@ -1,8 +1,6 @@
-# SQL Validation — Duplicate Primary Key Checks
+SQL Validation — Duplicate Primary Key Checks
 
----
-
-## Members — Duplicate member_id
+Members — Duplicate member_id
   
 SELECT
     member_id,
@@ -11,9 +9,7 @@ FROM members
 GROUP BY member_id
 HAVING COUNT(*) > 1;
 
----
-
-️## Books — Duplicate book_id
+Books — Duplicate book_id
   
 SELECT
     book_id,
@@ -22,9 +18,7 @@ FROM books
 GROUP BY book_id
 HAVING COUNT(*) > 1;
 
----
-
-️## Loans — Duplicate loan_id
+Loans — Duplicate loan_id
   
 SELECT
     loan_id,
