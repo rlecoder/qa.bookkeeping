@@ -1,58 +1,127 @@
-# Summary of Testing Activities
+# Test Summary — Bookkeeping API (v2)
 
-This project focuses on manually validating core functionality of a simple Bookkeeping API. The testing effort covers the main user flows related to book loans, returns, member account status, and book lookup features. The goal is to ensure each workflow behaves according to the defined business rules and returns accurate, consistent data.
+## Overview
 
----
+Manual API testing and backend SQL validation were performed on the Bookkeeping API mock environment.
 
-## **Areas Covered**
+Testing focused on validating core library workflows including:
 
-- Loan checkout process  
-- Loan return process  
-- Fine calculation rules based on overdue days  
-- Member status changes when fines reach the threshold  
-- Member summary reporting  
-- Book search with filters and pagination  
-- Handling of invalid or missing input values  
+- book checkout
+- book return
+- member summaries
+- book search and pagination
+- backend data integrity
 
----
-
-## **Test Documentation Included**
-
-- Test plan outlining scope and approach  
-- Test scenarios covering expected behaviors  
-- Manual test cases for Loans, Returns, Member Summary, and Book Search  
-- Notes prepared for potential defect logging  
-- Summary of overall findings  
+All testing was executed manually using Postman and read-only SQL queries.
 
 ---
 
-## **Key Behaviors Verified**
+## Test Scope
 
-- Members must be active and under the loan limit to check out books  
-- Books must be available before checkout is allowed  
-- Due dates are generated correctly using a 14-day window  
-- Overdue returns calculate fines based on daily rate  
-- Member accounts move to BLOCKED when fine totals reach the rule threshold  
-- Return operations correctly free the book and update loan status  
-- Member summary data properly reflects counts for active, overdue, and returned loans  
-- Book search filters only return matching results  
-- Pagination returns the correct number of items per page  
-- Invalid query parameters return appropriate error responses  
+### In Scope
 
----
+- Loans endpoints  
+- Returns workflow  
+- Member summary endpoint  
+- Books listing and filters  
+- Pagination handling  
+- Backend data validation using SQL  
 
-## **Testing Approach**
+### Out of Scope
 
-The test cases use a mix of standard positive checks, negative checks, and boundary conditions. Validation focuses on:
-
-- HTTP status codes  
-- Accuracy of returned fields  
-- Correct application of business rules  
-- State updates to members, books, and loans  
-- Error handling behavior  
+- UI testing  
+- Performance testing  
+- Security testing  
+- Automation testing  
+- Production environment testing  
 
 ---
 
-## **Overall Outcome**
+## Test Coverage
 
-The core functional areas appear logically consistent based on the defined rules. Additional defects will be logged in a separate section if discrepancies are found during execution or when more edge cases are evaluated.
+### API Testing
+
+- **Loans:** 6 test cases executed  
+- **Returns:** 8 test cases executed  
+- **Members:** 6 test cases executed  
+- **Books:** 5 test cases executed  
+
+Total API test cases executed: **25**
+
+---
+
+### SQL Validation
+
+SQL validation was performed across four areas:
+
+- data integrity checks  
+- loan business-rule validation  
+- fine calculation validation  
+- reporting and summary verification  
+
+All SQL queries were read-only and used only for validation purposes.
+
+---
+
+## Defects Summary
+
+| Severity | Count |
+|--------|-------|
+| High | 2 |
+| Medium | 1 |
+| Low | 1 |
+| **Total** | **4** |
+
+### Key Issues Identified
+
+- member summary loan count inconsistency  
+- loan status not updating after return  
+- book availability not updating after return  
+- pagination count inconsistencies  
+
+No critical system-blocking issues were identified.
+
+---
+
+## Test Results
+
+| Area | Result |
+|------|--------|
+| Loans | Pass with defects |
+| Returns | Pass with defects |
+| Members | Pass with defects |
+| Books | Pass with minor defects |
+| SQL Validation | Pass |
+
+---
+
+## Overall Assessment
+
+The API successfully supports core library workflows but contains several data consistency issues related to returns and summary reporting.
+
+Primary risks are related to:
+
+- incorrect loan status transitions  
+- inaccurate availability information  
+- inconsistent summary data  
+
+These issues should be resolved before production use.
+
+---
+
+## Testing Limitations
+
+- Mock server does not execute real backend logic  
+- Responses are based on static example data  
+- SQL validation is based on assumed schema  
+
+Despite these limitations, testing provides reasonable confidence in API contract behavior and highlights areas requiring backend correction.
+
+---
+
+## Conclusion
+
+The Bookkeeping API meets basic functional requirements but requires fixes to ensure data accuracy and consistent state transitions.
+
+Once the identified defects are resolved, the system would be suitable for further testing and potential automation coverage.
+
